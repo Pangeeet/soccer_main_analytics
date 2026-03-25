@@ -1,6 +1,6 @@
 # Soccer Analysis using YOLOv8
 
-Recently, the World Cup took place, with Argentina coming out on top as the champion. The tournament brought joy and excitement to fans all over the world, and it's no surprise that many of them are looking for new ways to enhance their viewing experience.
+Recently, the World Cup took place. The tournament brought joy and excitement to fans all over the world, and it's no surprise that many of them are looking for new ways to enhance their viewing experience.
 
 This is where **YOLO** and **Computer Vision** come in. By using these technologies, it's possible to track and analyze the movements of individual players on the field in real time. This can be incredibly useful for both fans and coaches, as it allows for a deeper understanding of the game and the strategies used by different teams.
 
