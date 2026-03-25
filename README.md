@@ -2,6 +2,8 @@
 
 This project analyzes soccer match footage with a YOLOv8-based pipeline and produces both a processed video and supporting reports. It is built around my own workflow for taking a match clip, tracking the players and ball, estimating team behavior, and exporting results that are easier to review.
 
+The repository includes a sample model file and a sample input video, so the default command can run after cloning once the Python dependencies are installed.
+
 ## What the project does
 
 - Detects and tracks players, referees, and the ball across the video
@@ -40,8 +42,10 @@ This project analyzes soccer match footage with a YOLOv8-based pipeline and prod
    ```
 
 3. Make sure the tracker weights are available in `models/best.pt`.
+   The repository already includes this file for the default demo run.
 
-4. Put a match video inside `input_videos/`, or prepare a full file path to pass on the command line.
+4. The repository also includes `input_videos/test_8.mp4` for the default demo run.
+   You can replace it later with your own video or pass a full file path on the command line.
 
 ## Run the analysis
 

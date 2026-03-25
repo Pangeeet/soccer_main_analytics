@@ -165,11 +165,14 @@ cython_debug/
 .tmp_ppt_review/
 input_videos/*
 !input_videos/note.txt
+!input_videos/test_8.mp4
 output_reports/*
 !output_reports/note.txt
 output_videos/*
 !output_videos/note.txt
 stubs/
-models/
-yolov8*.pt
+models/*
+!models/best.pt
+!models/note.txt
+yolov8m.pt
 training/football-players-detection-1/

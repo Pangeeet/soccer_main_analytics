@@ -1,0 +1,2 @@
+The sample tracker model used by the default demo run is stored in this folder.
+Extra local weight files are ignored by Git unless explicitly tracked.
