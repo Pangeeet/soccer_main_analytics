@@ -163,9 +163,12 @@ cython_debug/
 
 # Project-specific large files and generated artifacts
 .tmp_ppt_review/
-input_videos/
-output_reports/
-output_videos/
+input_videos/*
+!input_videos/note.txt
+output_reports/*
+!output_reports/note.txt
+output_videos/*
+!output_videos/note.txt
 stubs/
 models/
 yolov8*.pt

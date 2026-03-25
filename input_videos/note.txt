@@ -1,0 +1,2 @@
+Place source match videos in this folder.
+Large media files are ignored by Git, so this note stays in the repo to keep the folder visible on GitHub.

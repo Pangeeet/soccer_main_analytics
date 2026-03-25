@@ -1,90 +1,79 @@
-# Soccer Analysis using YOLOv8
+# Soccer Match Video Analytics
 
-Recently, the World Cup took place, with Argentina coming out on top as the champion. The tournament brought joy and excitement to fans all over the world, and it's no surprise that many of them are looking for new ways to enhance their viewing experience.
+This project analyzes soccer match footage with a YOLOv8-based pipeline and produces both a processed video and supporting reports. It is built around my own workflow for taking a match clip, tracking the players and ball, estimating team behavior, and exporting results that are easier to review.
 
-This is where **YOLO** and **Computer Vision** come in. By using these technologies, it's possible to track and analyze the movements of individual players on the field in real time. This can be incredibly useful for both fans and coaches, as it allows for a deeper understanding of the game and the strategies used by different teams.
+## What the project does
 
-This project employs YOLO (You Only Look Once) object detection to conduct comprehensive analysis of football matches. The goal is to provide detailed insights into player performance, team dynamics, ball possession, and camera movements during a match.
+- Detects and tracks players, referees, and the ball across the video
+- Assigns players to teams based on appearance
+- Estimates camera movement and compensates for it
+- Projects positions onto a calibrated pitch view
+- Tracks ball possession and summarizes pass links
+- Estimates team formations and team shape
+- Generates match summaries, diagnostics, and heatmaps
+- Saves an annotated output video
 
-<p><img height="300" width="500" src="https://github.com/Ayan-OP/Soccer-Analytics/blob/main/input_videos/input_video.gif" title="Input Video" alt="demo">
-<img height="300" width="500" src="https://github.com/Ayan-OP/Soccer-Analytics/blob/main/output_videos/output_video.gif" title="Processed Video" alt="demo"></p>
+## Repository structure
 
+- `main.py`: main entry point for the full analysis pipeline
+- `input_videos/`: place source videos here
+- `output_videos/`: processed videos are saved here
+- `output_reports/`: text reports and heatmaps are written here
+- `models/`: YOLO model weights used by the tracker
+- `stubs/`: cached tracking and camera-movement data
+- `field_calibrations.json`: per-video pitch calibration settings
+- `training/`: notebooks and dataset files related to training experiments
 
-## Installation
+## Setup
 
-1. **Clone the Repository:**
+1. Clone the repository:
 
    ```bash
    git clone https://github.com/Pangeeet/soccer_main_analytics.git
    cd soccer_main_analytics
    ```
 
-2. **Install Dependencies:**
+2. Install the dependencies:
+
    ```bash
    pip install -r requirements.txt
    ```
 
-The following libraries are used in this project:
+3. Make sure the tracker weights are available in `models/best.pt`.
 
-- ultralytics
-- opencv-python
-- supervision
-- scikit-learn
-- roboflow
-- numpy
-- pandas
-- pickle
-- shutil
+4. Put a match video inside `input_videos/`, or prepare a full file path to pass on the command line.
 
-## Usage
+## Run the analysis
 
-1. **Data Preparation:**
+The default run uses `test_8.mp4`:
 
-   - Place your video footage of the football match in the `input_videos` directory.
+```bash
+python main.py
+```
 
-2. **Running the Analysis:**
+You can also analyze a specific file:
 
-   - Execute the main script `python main.py` to initiate the analysis process.
-   - You can also analyze a specific video with `python main.py your_video.mp4`.
-   - The analysis encompasses the following key steps:
-     - Object tracking using YOLO for players, referees, and the football.
-     - Estimating camera movements to understand viewpoint changes.
-     - Calculating player speed, distance traveled, and determining ball possession.
-     - Visualizing analysis results on the video frames.
+```bash
+python main.py test_8.mp4
+python main.py "C:\path\to\your\video.mp4"
+```
 
-3. **Per-Video Field Calibration:**
+## Outputs
 
-   - Field calibration settings are stored in `field_calibrations.json`.
-   - The `default` entry is used when a video does not have its own calibration entry.
-   - To calibrate a new video, add an entry using the video filename without extension, for example:
+After a run, the project can generate:
 
-   ```json
-   "professor_match": {
-     "pitch_width": 68.0,
-     "pitch_length": 23.32,
-     "pixel_vertices": [[110, 1035], [265, 275], [910, 260], [1640, 915]]
-   }
-   ```
+- an annotated video in `output_videos/`
+- a team formation report in `output_reports/`
+- a match summary in `output_reports/`
+- a diagnostics report in `output_reports/`
+- team and player heatmaps in `output_reports/<video_name>_heatmaps/`
 
-   - `pixel_vertices` must contain the four pitch corner points from that video in image coordinates.
+## Notes
 
-4. **Output:**
-   - The annotated and analyzed video will be saved in the `output_videos` directory for review.
-
-## Code Structure
-
-- **`utils.py`**: Contains utility functions for video I/O operations.
-- **`trackers.py`**: Implements the **Supervision byte tracker** and interpolation techniques to track players, referees and the ball.
-- **`team_assigner.py`**: Assigns teams to players using **KMeans clustering** based on their visual appearance. <img height="50" width="50" src="https://github.com/Ayan-OP/Soccer-Analytics/blob/main/team_assigner/1_4I8poHyYgGXgRfX6h6xbbA.jpg" title="Processed Video" alt="demo">
-- **`player_ball_assigner.py`**: Determines ball possession among players during the match.
-- **`camera_movement_estimator.py`**: Estimates camera movements to analyze perspective changes.
-- **`view_transformer.py`**: Transforms object positions based on the camera view for accurate analysis.
-- **`speed_and_distance_estimator.py`**: Calculates player speeds and distances traveled for performance evaluation.
+- Large assets such as raw videos, processed videos, model weights, cached stubs, and generated reports are intentionally excluded from GitHub.
+- The `input_videos/`, `output_videos/`, and `output_reports/` folders stay visible in the repository through placeholder note files.
+- Field calibration values are stored in `field_calibrations.json`. Add a new entry there when you analyze a video recorded from a different camera angle.
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## Acknowledgements
-
-Special thanks to the YOLOv8 team and the contributors of the libraries used in this project for their valuable contributions to the field of object detection and analysis in computer vision.
+This project is released under the MIT License. See `LICENSE` for details.

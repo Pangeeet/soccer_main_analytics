@@ -1,0 +1,2 @@
+Processed videos are written to this folder.
+Generated media files are ignored by Git, so this note stays in the repo to keep the folder visible on GitHub.
