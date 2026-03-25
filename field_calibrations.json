@@ -1,0 +1,32 @@
+{
+  "default": {
+    "pitch_width": 68.0,
+    "pitch_length": 105.0,
+    "pixel_vertices": [
+      [110, 1035],
+      [265, 275],
+      [910, 260],
+      [1640, 915]
+    ]
+  },
+  "test_5": {
+    "pitch_width": 68.0,
+    "pitch_length": 105.0,
+    "pixel_vertices": [
+      [110, 1035],
+      [265, 275],
+      [910, 260],
+      [1640, 915]
+    ]
+  },
+  "test_6": {
+    "pitch_width": 68.0,
+    "pitch_length": 105.0,
+    "pixel_vertices": [
+      [-60, 1140],
+      [-10, 395],
+      [1940, 350],
+      [1980, 1050]
+    ]
+  }
+}
