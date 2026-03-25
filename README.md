@@ -1,8 +1,8 @@
 # Soccer Analysis using YOLOv8
 
-Recently, the World Cup took place, with Argentina coming out on top as the champion. The tournament brought joy and excitement to fans all over the world, and it’s no surprise that many of them are looking for new ways to enhance their viewing experience.
+Recently, the World Cup took place, with Argentina coming out on top as the champion. The tournament brought joy and excitement to fans all over the world, and it's no surprise that many of them are looking for new ways to enhance their viewing experience.
 
-This is where **YOLO** and **Computer Vision** come in. By using these technologies, it’s possible to track and analyze the movements of individual players on the field in real time. This can be incredibly useful for both fans and coaches, as it allows for a deeper understanding of the game and the strategies used by different teams. 
+This is where **YOLO** and **Computer Vision** come in. By using these technologies, it's possible to track and analyze the movements of individual players on the field in real time. This can be incredibly useful for both fans and coaches, as it allows for a deeper understanding of the game and the strategies used by different teams.
 
 This project employs YOLO (You Only Look Once) object detection to conduct comprehensive analysis of football matches. The goal is to provide detailed insights into player performance, team dynamics, ball possession, and camera movements during a match.
 
@@ -15,8 +15,8 @@ This project employs YOLO (You Only Look Once) object detection to conduct compr
 1. **Clone the Repository:**
 
    ```bash
-   git clone https://github.com/Ayan-OP/Soccer-Analytics.git
-   cd Soccer-Analytics
+   git clone https://github.com/Pangeeet/soccer_main_analytics.git
+   cd soccer_main_analytics
    ```
 
 2. **Install Dependencies:**
